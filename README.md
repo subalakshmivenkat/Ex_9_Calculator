@@ -1,25 +1,17 @@
+# Date:5.10.2024
 ## Ex.No:9 Develop a simple calculator using android studio.
 ## AIM:
 To develop a program to develop a simple calculator in Android Studio.
-
 ## EQUIPMENTS REQUIRED:
 Android Studio(Latest Version)
-
 ## ALGORITHM:
 Step 1: Open Android Stdio and then click on File -> New -> New project.
-
 Step 2: Then type the Application name as calculator and click Next.
-
 Step 3: Then select the Minimum SDK as shown below and click Next.
-
 Step 4: Then select the Empty Activity and click Next. Finally click Finish.
-
 Step 5: Design layout using UI components in activity_main.xml.
-
 Step 6: Display the calculator operation in MainActivity file.
-
 Step 7: Save and run the application.
-
 ## PROGRAM:
 ```
 Program to print the text “calculator operation”.
@@ -55,24 +47,6 @@ activity_main.xml:
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/num1"
-        android:layout_width="364dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="72dp"
-        android:layout_marginTop="70dp"
-        android:layout_marginEnd="71dp"
-        android:layout_marginBottom="416dp"
-        android:background="@android:color/white"
-        android:ems="10"
-        android:hint="Number 1"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <EditText
         android:id="@+id/num2"
         android:layout_width="363dp"
@@ -89,7 +63,6 @@ activity_main.xml:
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <TextView
         android:id="@+id/result"
         android:layout_width="356dp"
@@ -106,7 +79,6 @@ activity_main.xml:
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/sum"
         android:layout_width="wrap_content"
@@ -122,23 +94,6 @@ activity_main.xml:
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/sub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="210dp"
-        android:layout_marginTop="292dp"
-        android:layout_marginEnd="113dp"
-        android:layout_marginBottom="263dp"
-        android:backgroundTint="@android:color/holo_red_light"
-        android:onClick="doSub"
-        android:text="-"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/div"
         android:layout_width="wrap_content"
@@ -155,7 +110,6 @@ activity_main.xml:
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
     <Button
         android:id="@+id/mul"
         android:layout_width="wrap_content"
@@ -171,14 +125,11 @@ activity_main.xml:
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-
 </androidx.constraintlayout.widget.ConstraintLayout>
 ```
 MainActivity.java:
 ```
 package com.example.exp9;
-
 import androidx.appcompat.app.AppCompatActivity;
 //import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -189,12 +140,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 import android.os.Bundle;
 import android.os.Bundle;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
-
 import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity extends AppCompatActivity {
     EditText e1, e2;
@@ -205,71 +154,43 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
-
     public boolean getNumbers() {
-
         e1 = (EditText) findViewById(R.id.num1);
-
         e2 = (EditText) findViewById(R.id.num2);
-
         t1 = (TextView) findViewById(R.id.result);
-
         String s1 = e1.getText().toString();
-
         String s2 = e2.getText().toString();
-
         if ((s1.equals(null) && s2.equals(null))
                 || (s1.equals("") && s2.equals(""))) {
-
             String result = "Please enter a value";
             t1.setText(result);
-
             return false;
         } else {
             num1 = Integer.parseInt(s1);
-
             num2 = Integer.parseInt(s2);
         }
-
         return true;
     }
-
     public void doSum(View v) {
-
         if (getNumbers()) {
             int sum = num1 + num2;
             t1.setText(num1+"+"+num2+"="+Integer.toString(sum));
-        }
-    }
-
+        }}
     public void doSub(View v) {
-
         if (getNumbers()) {
             int sub = num1 - num2;
             t1.setText(num1+"-"+num2+"="+Integer.toString(sub));
-        }
-    }
-
-    public void doMul(View v) {
-
-        if (getNumbers()) {
-            int mul = num1 * num2;
-            t1.setText(num1+"*"+num2+"="+Integer.toString(mul));
-        }
-    }
-
+        }}
     public void doDiv(View v) {
 
         if (getNumbers()) {
 
             double div = num1 / (num2 * 1.0);
             t1.setText(num1 + "/" + num2 + "=" + Double.toString(div));
-        }
-    }
+        }}
 }
 ```
 ## OUTPUT
 ![376054904-89b120ab-4add-49e6-a762-e39b1b63548d](https://github.com/user-attachments/assets/1fb888a5-948c-4acc-9ca9-2a89e830ba0d)
-
 ## RESULT
 Thus a Simple Android Application develop a program to create simple calculator in Android Studio is developed and executed successfully.
